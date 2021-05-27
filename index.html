@@ -16,29 +16,23 @@
     <title>TODO app</title>
   </head>
   <body>
-    <div class="container">
-      <div
-        class="justify-content-center border rounded-pill mt-5 p-3 text-center"
-      >
-        <h1>To-Do List</h1>
-        <form>
-          <label for="Item"></label>
-          <input
-            type="text"
-            id="fname"
-            name="fname"
-            placeholder="Add an item!"
-          />
-          <input type="submit" value="Submit" />
-          <button type="button" class="btn btn-secondary">Secondary</button>
-        </form>
-      </div>
-    </div>
+    <h1>To-Do List</h1>
+    <form>
+      <label for="add"></label>
+      <input type="text" id="add" name="add" placeholder="Add an item!" />
+      <input type="button" value="Submit" onclick="appendList()" />
+      <input type="reset" />
+    </form>
 
+    <div>
+      <ol id="list"></ol>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
+
+    <script src="script.js"></script>
   </body>
 </html>
