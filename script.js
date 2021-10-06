@@ -1,31 +1,50 @@
 function appendList() {
-  // get value from input
-  let inputValue = document.getElementById("add").value;
+  // get value from input form
+  const inputValue = document.getElementById("add").value;
 
-  // add new list element and give it value from input
-  let list = document.getElementById("list");
-  let listItem = document.createElement("li");
+  // add new list item and append it to the list
+  const list = document.getElementById("list");
+  const listItem = document.createElement("li");
+  listItem.classList.add("list-group-item", "d-flex", "align-items-center");
+  listItem.style.border = "None";
   list.appendChild(listItem);
-  listItem.innerHTML = inputValue;
 
-  // create buttons for checking and removing list item
-  let checkedButton = document.createElement("button");
-  checkedButton.innerHTML = "X";
-  checkedButton.addEventListener("click", () => {
+  // create checkbox and append it to list item
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.classList.add("form-check-input");
+  checkbox.style.width = "1.7em";
+  checkbox.style.height = "1.1em";
+  listItem.appendChild(checkbox);
+
+  // create new input, append it to list item and give it the value from input form
+  const newItem = document.createElement("input");
+  newItem.type = "text";
+  newItem.readOnly = true;
+  newItem.style.backgroundColor = "#fff";
+  newItem.classList.add("form-control", "mx-3");
+  newItem.value = inputValue;
+  newItem.innerHTML = inputValue;
+  listItem.appendChild(newItem);
+
+  // button for removing items from the list
+  let removeButton = document.createElement("button");
+  removeButton.innerHTML = '<i class="bi bi-trash"></i>';
+  listItem.appendChild(removeButton);
+  removeButton.addEventListener("click", () => {
     listItem.remove();
-    checkedButton.remove();
-    doneButton.remove();
+    checkbox.remove();
+    removeButton.remove();
   });
-  list.appendChild(checkedButton);
 
-  let doneButton = document.createElement("button");
-  doneButton.innerHTML = "Done";
-  doneButton.addEventListener("click", () => {
-    if (listItem.style.getPropertyValue("text-decoration") === "line-through") {
-      listItem.style = "text-decoration:none";
+  // if checkbox is checked, change font color to gray
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      console.log("checked");
+      newItem.style.color = "#c4c1c0";
     } else {
-      listItem.style = "text-decoration:line-through";
+      console.log("not checked");
+      newItem.style.color = "#212529";
     }
   });
-  list.appendChild(doneButton);
 }
