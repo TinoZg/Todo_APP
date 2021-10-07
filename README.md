@@ -11,7 +11,6 @@ Simple TODO list application. Can be viewed [here]().
 
 ## Task list
 
-- [x] Check if bootstrap JS is needed
-- [ ] Save data in local storage
+- [x] Items should not be added if input is empty
+- [x] Save data in local storage
 - [ ] Refactor code
-- [x] Mark done items
