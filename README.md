@@ -14,3 +14,4 @@ Simple TODO list application. Can be viewed [here]().
 - [x] Items should not be added if input is empty
 - [x] Save data in local storage
 - [ ] Refactor code
+- [ ] Checkbox and deleting from local storage not working properly on load

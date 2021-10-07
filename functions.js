@@ -52,10 +52,8 @@ const appendList = () => {
   // if checkbox is checked, change font color to gray
   checkbox.addEventListener("change", () => {
     if (checkbox.checked) {
-      console.log("checked");
       newItem.style.color = "#c4c1c0";
     } else {
-      console.log("not checked");
       newItem.style.color = "#212529";
     }
   });
