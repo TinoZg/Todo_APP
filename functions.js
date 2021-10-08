@@ -24,7 +24,7 @@ const appendList = () => {
   checkbox.style.height = "1.1em";
   listItem.appendChild(checkbox);
 
-  // create new input, append it to list item and give it the value from input form
+  // create new input, append it to list item and give it the value from input the form
   let storageLength = localStorage.length + 1;
   const newItem = document.createElement("input");
   newItem.type = "text";
@@ -79,11 +79,21 @@ const renderStorageItems = () => {
     checkbox.style.height = "1.1em";
     listItem.appendChild(checkbox);
 
+    // if checkbox is checked, change font color to gray
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        newItem.style.color = "#c4c1c0";
+      } else {
+        newItem.style.color = "#212529";
+      }
+    });
+
     // create new input, append it to list item and give it the value from input form
     const newItem = document.createElement("input");
     newItem.type = "text";
     newItem.readOnly = true;
     newItem.style.backgroundColor = "#fff";
+    newItem.setAttribute("id", "item" + (i + 1));
     newItem.classList.add("form-control", "mx-3");
     newItem.value = localStorage.getItem(
       localStorage.key(storageLength - i - 1)
@@ -95,6 +105,7 @@ const renderStorageItems = () => {
     removeButton.innerHTML = '<i class="bi bi-trash"></i>';
     listItem.appendChild(removeButton);
     removeButton.addEventListener("click", () => {
+      localStorage.removeItem("item" + (i + 1));
       listItem.remove();
       checkbox.remove();
       removeButton.remove();
