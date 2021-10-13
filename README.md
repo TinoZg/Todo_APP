@@ -6,10 +6,3 @@ Simple TODO list application. Can be viewed [here](https://tinozg.github.io/Todo
 
 - Styled with Bootstrap
 - Items are saved in local storage
-
----
-
-## Task list
-
-- [ ] Fix bugs with Local Storage
-- [ ] Refactor code

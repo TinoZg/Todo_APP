@@ -117,8 +117,4 @@ const renderStorageItems = () => {
         removeButton.remove();
       });
     });
-  // for (let i = 0; i < storageLength; i++) {
-  // add new list item and append it to the list
-
-  // }
 };
